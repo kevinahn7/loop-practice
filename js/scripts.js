@@ -9,6 +9,9 @@ $(document).ready(function() {
       alert("Enter some groceries");
     } else {
       for(i = 0; i < items.length; i++) {
+        if (items[i] === "" || items[i] === " ") {
+          continue;
+        }
         $(".list").append("<li>" + items[i].toUpperCase() + "</li>")
       }
     };
@@ -60,7 +63,6 @@ $(document).ready(function() {
         continue;
       };
       $(".matchedWords").append(theKey[x] + ": " + theValue[x] + "<br />");
-
     };
 
   });
