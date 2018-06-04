@@ -19,7 +19,10 @@ $(document).ready(function() {
   });
 
   $(".restart").click(function() {
-    location.reload();
+    $(".listForm").show();
+    $(".restart").hide();
+    items.length = 0;
+    document.getElementById("list1").innerHTML = "";
   });
 
   $(".add").click(function(event) {
@@ -56,7 +59,7 @@ $(document).ready(function() {
         acc[curr] += 1;
       }
       return acc;
-    }, {});;
+    }, {});
 
 
     //console.log(answer);
