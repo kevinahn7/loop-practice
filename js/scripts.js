@@ -3,19 +3,23 @@ $(document).ready(function() {
   var items = [];
   $(".listForm").submit(function(event) {
     event.preventDefault();
-    $(".listForm").hide();
-    items.sort();
-    if (items.length === 0) {
-      alert("Enter some groceries");
+    if (items.length < 1) {
+      alert("Enter some groceries first");
     } else {
+      $(".listForm").hide();
+      $(".restart").show();
+      items.sort();
       for(i = 0; i < items.length; i++) {
         if (items[i] === "" || items[i] === " ") {
           continue;
         }
         $(".list").append("<li>" + items[i].toUpperCase() + "</li>")
       }
-    };
+    }
+  });
 
+  $(".restart").click(function() {
+    location.reload();
   });
 
   $(".add").click(function(event) {
